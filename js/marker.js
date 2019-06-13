@@ -420,5 +420,3 @@ function loginComplete() {
     });
 }
 
-loginComplete();
-

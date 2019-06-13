@@ -31,6 +31,20 @@ html, body {
 	background-color: #caddef;
 }
 
+.modal-body .btn {
+    border-radius: 0px;
+    width: 100%;
+}
+.modal-body img {
+    float:left;
+    border-radius: 0px;
+    width: 40px;
+    height: 40px;
+}
+.modal-body div {
+    padding:10px;
+}
+
 
 /*map overlay*/
 .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
