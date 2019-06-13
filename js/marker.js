@@ -68,65 +68,65 @@ var friend_positions = [
 // 식당 정보
 var restaurant_positions = [
     {
-        title: 'r1', 
+        title: '고를샘', 
         latlng: new daum.maps.LatLng(37.563334, 126.938297)
     },
     {
-        title: 'r2', 
+        title: '청경관', 
         latlng: new daum.maps.LatLng(37.566830, 126.937706)
     },
     {
-        title: 'r3', 
+        title: '부를샘', 
         latlng: new daum.maps.LatLng(37.563172, 126.938342)
     },
     {
-        title: 'r4',
+        title: '공대 뷔페(공슐리)',
         latlng: new daum.maps.LatLng(37.560864, 126.935560)
     },
     {
-        title: 'r5',
+        title: '한경관',
         latlng: new daum.maps.LatLng(37.565496, 126.937254)
     }
 ];
 // 프린터 정보
 var printer_positions = [
     {
-        title: 'printer1', 
+        title: '위당관 복사실', 
         latlng: new daum.maps.LatLng(37.567071, 126.937722)
     },
     {
-        title: 'printer2', 
+        title: '복사실(제2공학관)', 
         latlng: new daum.maps.LatLng(37.561989, 126.936414)
     },
     {
-        title: 'printer3', 
+        title: 'POD센터', 
         latlng: new daum.maps.LatLng(37.563558, 126.938495)
     },
     {
-        title: 'printer4',
+        title: '복사실(중앙도서관)',
         latlng: new daum.maps.LatLng(37.563719, 126.936865)
     }
 ];
 // 카페 정보
 var cafe_positions = [
     {
-        title: 'c1', 
+        title: '마호가니커피', 
         latlng: new daum.maps.LatLng(37.561748, 126.936352)
     },
     {
-        title: 'c2', 
+        title: '스타벅스', 
         latlng: new daum.maps.LatLng(37.563136, 126.937346)
     },
     {
-        title: 'c3', 
+        title: '트레비앙(청경관)', 
         latlng: new daum.maps.LatLng(37.566776, 126.937660)
     },
     {
-        title: 'c4',
+        title: '카페쉐어링(한울샘)',
         latlng: new daum.maps.LatLng(37.562468, 126.935536)
     },
     {
-        title: 'c5',
+        title: '카페쉐어링(학술정보원)',
         latlng: new daum.maps.LatLng(37.563928, 126.936123)
     }
 ];
@@ -156,17 +156,17 @@ for (var i = 0; i < printer_positions.length; i ++) {
     var content = '<div class="wrap">' + 
             '    <div class="info">' + 
             '        <div class="title">' + 
-            '            카카오 스페이스닷원' + 
+            '            '+marker.getTitle()+ 
             '            <div class="close" onclick="closeOverlay(\''+marker.getTitle()+'\')" title="닫기"></div>' + 
             '        </div>' + 
             '        <div class="body">' + 
             '            <div class="img">' +
-            '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+            '                <img src="img/res1.jpeg" width="73" height="70">' +
             '           </div>' + 
             '            <div class="desc">' + 
-            '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
-            '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-            '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+            '                <div class="ellipsis">서울 서대문구 연세로 50</div>' + 
+            '                <div class="jibun ellipsis">(우) 03722(지번) 신촌동 134</div>' + 
+            '                <div><a class="link">02-2123-6932 상세보기</a></div>' + 
             '            </div>' + 
             '        </div>' + 
             '    </div>' +    
@@ -207,7 +207,7 @@ for (var i = 0; i < restaurant_positions.length; i ++) {
     var content = '<div class="wrap">' + 
             '    <div class="info">' + 
             '        <div class="title">' + 
-            '            고를샘' + 
+            '            '+marker.getTitle()+
             '            <div class="close" onclick="closeOverlay(\''+marker.getTitle()+'\')" title="닫기"></div>' + 
             '        </div>' + 
             '        <div class="body">' + 
@@ -258,17 +258,17 @@ for (var i = 0; i < cafe_positions.length; i ++) {
     var content = '<div class="wrap">' + 
             '    <div class="info">' + 
             '        <div class="title">' + 
-            '            카카오 스페이스닷원' + 
+            '            '+marker.getTitle()+
             '            <div class="close" onclick="closeOverlay(\''+marker.getTitle()+'\')" title="닫기"></div>' + 
             '        </div>' + 
             '        <div class="body">' + 
             '            <div class="img">' +
-            '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+            '                <img src="img/res1.jpeg" width="73" height="70">' +
             '           </div>' + 
             '            <div class="desc">' + 
-            '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
-            '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-            '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+            '                <div class="ellipsis">서울 서대문구 연세로 50</div>' + 
+            '                <div class="jibun ellipsis">(우) 03722(지번) 신촌동 134</div>' + 
+            '                <div><a class="link">02-2123-6932 상세보기</a></div>' + 
             '            </div>' + 
             '        </div>' + 
             '    </div>' +    
@@ -366,9 +366,13 @@ function clickMarker(marker) {
 	if(current_overlay != null) {
 		current_overlay.setMap(null);
 	}
+    //마커 위치에 해당 오버레이를 띄움
 	current_overlay = marker_overlay_map[marker.getTitle()];
-
 	marker_overlay_map[marker.getTitle()].setMap(map);
+
+    sidebar_update(marker, sidebar_list[marker.getTitle()]);
+
+    //사이드바 활성화
 	$('#sidebar').addClass('active');
 	$('.collapse.in').toggleClass('in');
     $('a[aria-expanded=true]').attr('aria-expanded', 'false');
@@ -409,7 +413,7 @@ function loginComplete() {
     html = '<li class = "login_user"><i class = "fas fa-user-circle fa-lg"></i>&nbsp;이동제</li>';
     html += '<li class = "login_myposi"><a class = "btn btn-default" id = "myposi">내위치보기</a></li>';
     html += '<li class = "login_userlist"><a id = "userlist" class = "btn btn-default">친구목록</a></li>';
-    $("#login").html(html);
+    $("#login").html(html); //#login의 html 내용을 변경
 
     $("#userlist").click(function(){
         $('#sidebar_2').addClass('active');
@@ -419,4 +423,165 @@ function loginComplete() {
         addMarkerMoveForce('이동제');
     });
 }
+
+function sidebar_update(marker, obj) {
+    if(obj == undefined) {
+        $("#sidebar div.sidebar-header").html('<h3><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;'+marker.getTitle()+'</h3>');
+        return;
+    }
+    var icon, title;
+    if(obj['category'] == 'res') {
+        icon = 'fa-utensils';
+        title = 'Restaurant';
+    } else if(obj['category'] == 'cafe') {
+        icon = 'fa-coffee';
+        title = 'Cafe';
+    } else if(obj['category'] == 'printer') {
+        icon = 'fa-print';
+        title = 'Printer';
+    }
+    
+    $("#sidebar div.sidebar-header").html('<h3><i class="fas '+icon+'"></i>&nbsp;&nbsp;'+obj['main']+'</h3>');
+    $("#sidebar #sub").html(
+        '<span style="font-size:12px;color:black;">'+title+'</span>'
+        +'<br>'
+        +'<span>'+obj['sub']+'</span>'
+        +'<br>'
+    );
+    // $("#sidebar #runtime").html(
+    //     '<font style="font-size:13px;font-weight: bold;">영업시간</font>'+
+    //     '<br/>'+
+    //     '<font style="font-size:11px;">'+
+    //     '</font>'
+    // );
+    $("#sidebar #menu").html(obj['menu']);
+    $("#sidebar #comments").html(obj['comments']);
+}
+sidebar_list = {
+    '청경관':{
+        position: new daum.maps.LatLng(37.566830, 126.937706),
+        category: 'res',
+        main: '청경관',
+        sub: '신촌캠퍼스 위당관 지하2층에 있는 식당',
+        menu: '<ul style = "padding:10px;">'+
+        '<li><div> 그라탕 - 만조 ...................... 4000원</div></li>'+
+        '<li><div> 오븐스파게티팀발..................... 5000원</div></li>'+
+        '<li><div> 오븐스파게티 치킨 바베큐 .............. 6200원</div></li>'+
+        '<li><div> 아라비아따 ......................... 6200원</div></li>'+
+        '<li><div> 바로아크림 ......................... 6200원</div></li>'+
+        '<li><div> 오븐스파게티 까르보나라 ............... 6200원</div></li>'+
+        '</ul>',
+        comments:
+        '<li>'+
+        '<div class = "name">'+
+        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;윤현진'+
+        '<span> 2019-06-13 </span>'+
+        '</div>'+
+        '<div class = "content">'+
+        '솔직히 고를샘이랑 여기랑 비교가 되나'+
+        '</div>'+
+        '</li>'+
+        '<li>'+
+        '<div class = "name">'+
+        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;최진혁'+
+        '<span> 2019-06-12 </span>'+
+        '</div>'+
+        '<div class = "content">'+
+        '오늘도 맛있게 먹고 갑니다'+
+        '</div>'+
+        '</li>'
+    },
+    '고를샘':{
+        position: new daum.maps.LatLng(37.566830, 126.937706),
+        category: 'res',
+        main: '고를샘',
+        sub: '신촌캠퍼스 학생회관 1층에 있는 식당',
+        menu: '<ul style = "padding:10px;">'+
+        '<li><div> 그라탕 - 만조 ...................... 4000원</div></li>'+
+        '<li><div> 오븐스파게티팀발..................... 5000원</div></li>'+
+        '<li><div> 오븐스파게티 치킨 바베큐 .............. 6200원</div></li>'+
+        '<li><div> 아라비아따 ......................... 6200원</div></li>'+
+        '<li><div> 바로아크림 ......................... 6200원</div></li>'+
+        '<li><div> 오븐스파게티 까르보나라 ............... 6200원</div></li>'+
+        '</ul>',
+        comments:
+        '<li>'+
+        '<div class = "name">'+
+        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;윤현진'+
+        '<span> 2019-06-13 </span>'+
+        '</div>'+
+        '<div class = "content">'+
+        '오늘 고를샘에 특식 판매함 만원짜리'+
+        '</div>'+
+        '</li>'+
+        '<li>'+
+        '<div class = "name">'+
+        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;황진성'+
+        '<span> 2019-06-12 </span>'+
+        '</div>'+
+        '<div class = "content">'+
+        '오늘 스파게티 상태 안좋네'+
+        '</div>'+
+        '</li>'
+    },'마호가니커피':{
+        position: new daum.maps.LatLng(37.566830, 126.937706),
+        category: 'cafe',
+        main: '마호가니 커피',
+        sub: '신촌캠퍼스 제4공학관 1층에 있는 카페',
+        menu: '<ul style = "padding:10px;">'+
+        '<li><div> 아메리카노(HOT/ICE) .......... 2200원/2700원</div></li>'+
+        '<li><div> 카페라떼(HOT/ICE)..............1800원/2100원</div></li>'+
+        '<li><div> 초코라떼(HOT/ICE)............ 2100원/2400원</div></li>'+
+        '<li><div> 녹차라떼(HOT/ICE)............ 2100원/2400원</div></li>'+
+        '<li><div> 쿠키바닐라버블티..................... 2800원</div></li>'+
+        '</ul>',
+        comments:
+        '<li>'+
+        '<div class = "name">'+
+        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;윤현진'+
+        '<span> 2019-06-13 </span>'+
+        '</div>'+
+        '<div class = "content">'+
+        '괜찮긴 한데, 트레비앙보단 비싸고 스벅보단 맛이 없어...'+
+        '</div>'+
+        '</li>'+
+        '<li>'+
+        '<div class = "name">'+
+        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;이연우'+
+        '<span> 2019-06-12 </span>'+
+        '</div>'+
+        '<div class = "content">'+
+        '아 공대는 이런거도 지어주네 ㅜㅜ'+
+        '</div>'+
+        '</li>'
+    },'위당관 복사실':{
+        position: new daum.maps.LatLng(37.566830, 126.937706),
+        category: 'printer',
+        main: '복사실(위당관)',
+        sub: '신촌캠퍼스 위당관에 있는 복사실',
+        menu: '<ul style = "padding:10px;">'+
+        '<li><div> 흑백 복사 .......................... 50원/장</div></li>'+
+        '<li><div> 컬러 복사 ..........................300원/장</div></li>'+
+        '</ul>',
+        comments:
+        '<li>'+
+        '<div class = "name">'+
+        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;이동제'+
+        '<span> 2019-06-13 </span>'+
+        '</div>'+
+        '<div class = "content">'+
+        '여기 아줌마 불친절함'+
+        '</div>'+
+        '</li>'+
+        '<li>'+
+        '<div class = "name">'+
+        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;최진혁'+
+        '<span> 2019-06-12 </span>'+
+        '</div>'+
+        '<div class = "content">'+
+        '여기서 회계원리 복사본 얻을 수 있나요'+
+        '</div>'+
+        '</li>'
+    }
+};
 
