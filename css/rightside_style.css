@@ -1,0 +1,125 @@
+
+#sidebar_2 {
+    width: 300px;
+    position: fixed;
+    top: 53px;
+    right: -300px;
+    height: 100vh;
+    z-index: 999;
+    background: #fff;
+    color: #fff;
+    transition: all 0.3s;
+    overflow-y: scroll;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar_2 ul{color:black;}
+
+#sidebar_2.active {
+    right: 0;
+}
+
+div.image_list {
+    padding: 10px;
+    height: 110px;
+}
+
+div.image_list > .img_part {
+    width: 120px;
+    float: left;
+    margin-right: 10px;
+}
+
+div.image_list span {
+    color: #6b6b6b;
+}
+
+#dismiss_2 {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #3884c5;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+#dismiss_2:hover {
+    background: #fff;
+    color: #7386D5;
+}
+
+#sidebar_2 .sidebar_2-header {
+    padding: 15px;
+    background: #3c3c3c;
+}
+
+#sidebar_2 .sidebar_2-header h3 {
+    margin: 0;
+}
+
+#sidebar_2 ul.components {
+    padding: 0;
+    border-bottom: 1px solid #47748b;
+    border-top: 1px solid #47748b;
+}
+
+#sidebar_2 ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar_2 hr{
+    margin: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#sidebar_2 ul li div {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: #337ab7;
+}
+
+#sidebar_2 ul li div span.online{
+    float: right;
+    padding-top:2px;
+    color: #009688;
+    font-size: 12px;
+}
+
+#sidebar_2 ul li div span.offline{
+    float: right;
+    padding-top:2px;
+    color: #929292;
+    font-size: 12px;
+}
+
+#sidebar_2 ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar_2 ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #337ab7;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
