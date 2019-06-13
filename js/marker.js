@@ -389,6 +389,7 @@ function addMarker(position) {
 }
 
 var current_marker = null;
+var me_marker = null;
 function addMarkerMove(name){
     if(current_marker != null) {
         current_marker.setMap(null);
@@ -401,17 +402,22 @@ function addMarkerMove(name){
     map.panTo(marker.getPosition());   
 }
 
-function addMarkerMoveForce(name){
+function addMarkerMoveMe(name){
     var marker = person_makers_map[name];
     marker.setMap(map);
 
+    me_marker = marker;
     map.setLevel(3);
     map.panTo(marker.getPosition());   
 }
 
 function loginComplete() {
-    html = '<li class = "login_user"><i class = "fas fa-user-circle fa-lg"></i>&nbsp;이동제</li>';
+    alert('로그인 되었습니다.');
+
+    html = '<li class = "login_user"><i class = "fas fa-user-circle fa-lg"></i>&nbsp;이동제&nbsp;</li>';
+    html += '<li class = "logout"><a id = "logout"><i class = "fas fa-sign-out-alt fa-lg"></i>&nbsp;Log out&nbsp;</a></li>';
     html += '<li class = "login_myposi"><a class = "btn btn-default" id = "myposi">내위치보기</a></li>';
+    html += '<li class = "login_remove"><a class = "btn btn-default" id = "remove">마커제거</a></li>';
     html += '<li class = "login_userlist"><a id = "userlist" class = "btn btn-default">친구목록</a></li>';
     $("#login").html(html); //#login의 html 내용을 변경
 
@@ -419,9 +425,59 @@ function loginComplete() {
         $('#sidebar_2').addClass('active');
     });
 
-    $("#myposi").click(function(){
-        addMarkerMoveForce('이동제');
+    $("#remove").click(function(){
+        removePersonMarker();
     });
+
+    $("#logout").click(function(){
+        logout();
+    });
+
+    $("#myposi").click(function(){
+        addMarkerMoveMe('이동제');
+    });
+}
+
+function removePersonMarker() {
+    if(me_marker != null)
+        me_marker.setMap(null);
+    if(current_marker != null)
+        current_marker.setMap(null);
+}
+
+function logout() {
+    alert('로그아웃 되었습니다.');
+    $("#login").html('<li><a data-toggle="modal" data-target="#loginmodal">Log In <span class="sr-only">(current)</span></a></li>');
+
+    $("#userlist").click(function(){
+        $('#sidebar_2').addClass('active');
+    });
+
+    $('#sidebar_2').removeClass('active');
+
+    if(me_marker != null)
+        me_marker.setMap(null);
+    if(current_marker != null)
+        current_marker.setMap(null);
+}
+
+function commentPush(name, comment, date) {
+    $("#comments").append(
+        '<li>'+
+        '    <div class="name">'+
+        '        <i class="fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;'+name+
+        '        <span> 2019-06-14 </span>'+
+        '    </div>'+
+        '    <div class="content">'+
+                comment+
+        '    </div>'+
+        '</li>'
+    );
+}
+
+function commentSubmit() {
+    commentPush('이연우',$('#commentInput').val(), '');
+    $('#commentInput').val('');
 }
 
 function sidebar_update(marker, obj) {

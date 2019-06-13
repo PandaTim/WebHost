@@ -35,8 +35,12 @@ $(document).ready(function(){
         addMarkerMove('최진혁');
     });  
 
-    $(".modal-body button").click(function(e){
-        loginComplete();
-    }) ;
+    $("#commentInput").keydown(function(event) {
+        console.log(event.keyCode);
+        if(event.keyCode==13) {
+          commentSubmit();
+        }
+    });
+
 
 });
