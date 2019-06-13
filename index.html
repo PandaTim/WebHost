@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>타이틀</title>
+    <script src="https://kit.fontawesome.com/081a31a19b.js"></script>
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style3.css">
+    <link rel="stylesheet" href="css/rightside_style.css">
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss').on('click', function() {
+                $('#sidebar').removeClass('active');
+                current_overlay.setMap(null);
+            });
+
+            $('#dismiss_2').on('click', function() {
+                $('#sidebar_2').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3><i class="fas fa-utensils"></i>&nbsp;&nbsp;고를샘</h3>
+        </div>
+
+        <ul class="list-unstyled components" style="margin:0;">
+            <div class="image_list">
+                <div class="img_part">
+                    <img src="img/res1.jpeg" style="width:100%;border-radius: 5px;" class="mCS_img_loaded" />
+                </div>
+                <div style="font-size:12px;">
+                    <span style="font-size:12px;color:black;">Restaurant</span>
+                    <br>
+                    <span>신촌캠퍼스 학생회관 1층에 있는 식당</span>
+                    <br>
+                </div>
+            </div>
+            <hr style="margin: 0;" />
+            <li>
+                <p style="color: black;">
+                    <font style="font-size:13px;font-weight: bold;">영업시간</font>
+                    <br/>
+                    <font style="font-size:11px;">
+                        월요일&nbsp;&nbsp;&nbsp;&nbsp;
+                        오전 09:00 ~ 오후 07:00<br>
+                        화요일&nbsp;&nbsp;&nbsp;&nbsp;
+                        오전 09:00 ~ 오후 07:00<br>
+                        수요일&nbsp;&nbsp;&nbsp;&nbsp;
+                        오전 09:00 ~ 오후 07:00<br>
+                        목요일&nbsp;&nbsp;&nbsp;&nbsp;
+                        오전 09:00 ~ 오후 07:00<br>
+                        금요일&nbsp;&nbsp;&nbsp;&nbsp;
+                        오전 09:00 ~ 오후 07:00<br>
+                        토요일&nbsp;&nbsp;&nbsp;&nbsp;
+                        오전 09:00 ~ 오후 02:30<br>
+                        일요일&nbsp;&nbsp;&nbsp;&nbsp;
+                        영업하지 않습니다</font>
+                </p>
+            </li>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Menu</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li class="menu_li" style="padding-bottom: 10px;">
+                        <ul style="padding:10px;">
+                            <li>
+                                <div> 그라탕 - 만조 ...................... 4000원</div>
+                            </li>
+                            <li>
+                                <div> 오븐스파게티팀발..................... 5000원</div>
+                            </li>
+                            <li>
+                                <div> 오븐스파게티 치킨 바베큐 .............. 6200원</div>
+                            </li>
+                            <li>
+                                <div> 그라탕 - 만조 ...................... 4000원</div>
+                            </li>
+                            <li>
+                                <div> 오븐스파게티팀발..................... 5000원</div>
+                            </li>
+                            <li>
+                                <div> 오븐스파게티 치킨 바베큐 .............. 6200원</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="comments">
+            <li>
+                <div class="name">
+                    <i class="fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;이동제
+                    <span> 2019-06-13 </span>
+                </div>
+                <div class="content">
+                    오늘 고를샘에 특식 판매함 만원짜리
+                </div>
+            </li>
+            <li>
+                <div class="name">
+                    <i class="fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;황진성
+                    <span> 2019-06-12 </span>
+                </div>
+                <div class="content">
+                    오늘 스파게티 상태안좋네
+                </div>
+            </li>
+        </ul>
+        <div style="position: fixed; bottom:0px;">
+            <div class="input-group" style="padding: 5px; width:300px;">
+                <input type="text" class="form-control" placeholder="Comment...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class = "fas fa-paper-plane"></i></button>
+                  </span>
+            </div>
+            <!-- /input-group -->
+        </div>
+    </nav>
+
+    <!--friend bar-->
+    <nav id="sidebar_2" class="">
+        <div id="dismiss_2">
+            <i class="fas fa-arrow-right"></i>
+        </div>
+
+        <div class="sidebar_2-header">
+            <h3><i class="fas fa-users"></i>&nbsp;&nbsp;친구목록</h3>
+        </div>
+        <div class="input-group" style="padding: 5px">
+            <input type="text" class="form-control" placeholder="User ID">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">친구추가</button>
+              </span>
+        </div>
+        <!-- /input-group -->
+        <ul class="list-unstyled components">
+            <li class="">
+                <div>
+                    <i class="fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;이연우
+                    <span class="online">
+                            <font>접속중&nbsp;</font>
+                            <button class = "btn btn-default btn-xs" id = "friend1">위치보기</button>
+                        </span>
+                </div>
+            </li>
+            <hr/>
+            <li class="">
+                <div>
+                    <i class="fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;최진혁
+                    <span class="online">
+                            <font>접속중&nbsp;</font>
+                            <button class = "btn btn-default btn-xs" id = "friend2">위치보기</button>
+                        </span>
+                </div>
+            </li>
+            <hr/>
+            <li class="">
+                <div>
+                    <i class="fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;윤현진
+                    <span class="offline">
+                            <font>오프라인&nbsp;</font>
+                        </span>
+                </div>
+            </li>
+            <hr/>
+            <li class="">
+                <div>
+                    <i class="fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;이연우
+                    <span class="offline">
+                            <font>오프라인&nbsp;</font>
+                        </span>
+                </div>
+            </li>
+            <hr/>
+            <li class="">
+                <div>
+                    <i class="fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;황진성
+                    <span class="offline">
+                            <font>오프라인&nbsp;</font>
+                        </span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" id="sidebarCollapse" href="#" style="color: #cbd2d8">
+                    <i class="fas fa-eye"></i>&nbsp;&nbsp;Eagle Eye
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li style="padding: 10px 10px;"><a class="btn btn-secondary" id="home"><i class="fas fa-crosshairs fa-lg"></i>&nbsp;위치 초기화</a></li>
+
+                    <li class="dropdown" aria-labelledby="dropdown1">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">       
+                        Dropdown <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" style="background-color: #181818">
+                            <li>
+                                <div class="custom-checkbox">
+                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="res_check">
+                                    <label>식당</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="cafe_check">
+                                    <label>카페</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox" style="padding-right: 30px">
+                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="printer_check">
+                                    <label>프린터</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" id="login">
+                    <li><a href="./">Log In <span class="sr-only">(current)</span></a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div id="map"></div>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eaa95a1cfab01beb5e6e695be2a83a61"></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+    <script src="js/marker.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
