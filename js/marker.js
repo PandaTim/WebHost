@@ -32,6 +32,8 @@ function zoomIn() {
 function zoomOut() {
     map.setLevel(map.getLevel() + 1);
 }
+
+
 var restaurant_markers = [];
 var printer_markers = [];
 var cafe_markers = [];
@@ -39,6 +41,8 @@ var person_makers_map = {};
 
 var marker_overlay_map = {};
 var current_overlay = null;
+
+
 
 
 // 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
@@ -314,6 +318,58 @@ for (var i = 0; i < friend_positions.length; i ++) {
     person_makers_map[marker.getTitle()] = marker;
 }
 
+
+function clickMarker(marker) {
+    if(current_overlay != null) {
+        current_overlay.setMap(null);
+    }
+    //마커 위치에 해당 오버레이를 띄움
+    current_overlay = marker_overlay_map[marker.getTitle()];
+    marker_overlay_map[marker.getTitle()].setMap(map);
+
+    //alert(sidebar_list[marker.getTitle()]['main']);
+    sidebar_update(marker, sidebar_list[marker.getTitle()]);
+
+    //사이드바 활성화
+    $('#sidebar').addClass('active');
+    $('.collapse.in').toggleClass('in');
+    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+}
+
+function sidebar_update(marker, obj) {
+
+    if(obj == undefined) {
+        $("#sidebar header.sidebar-header").html('<h3><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;'+marker.getTitle()+'</h3>');
+        return;
+    }
+    var icon, title;
+    if(obj['category'] == 'res') {
+        icon = 'fa-utensils';
+        title = 'Restaurant';
+    } else if(obj['category'] == 'cafe') {
+        icon = 'fa-coffee';
+        title = 'Cafe';
+    } else if(obj['category'] == 'printer') {
+        icon = 'fa-print';
+        title = 'Printer';
+    }
+    $("#sidebar header.sidebar-header").html('<h3><i class="fas '+icon+'"></i>&nbsp;&nbsp;'+obj['main']+'</h3>');
+    $("#sidebar #sub").html(
+        '<span style="font-size:12px;color:black;">'+title+'</span>'
+        +'<br>'
+        +'<span>'+obj['sub']+'</span>'
+        +'<br>'
+    );
+    // $("#sidebar #runtime").html(
+    //     '<font style="font-size:13px;font-weight: bold;">영업시간</font>'+
+    //     '<br/>'+
+    //     '<font style="font-size:11px;">'+
+    //     '</font>'
+    // );
+    $("#sidebar #menu").html(obj['menu']);
+    $("#sidebar #comments").html(obj['comments']);
+}
+
 //프린터 마커 켜기
 function printers_turnon(){
 	for (var i = 0; i < printer_markers.length; i ++) {
@@ -362,21 +418,6 @@ function closeOverlay(title) {
     $('#sidebar').removeClass('active');    
 }
 
-function clickMarker(marker) {
-	if(current_overlay != null) {
-		current_overlay.setMap(null);
-	}
-    //마커 위치에 해당 오버레이를 띄움
-	current_overlay = marker_overlay_map[marker.getTitle()];
-	marker_overlay_map[marker.getTitle()].setMap(map);
-
-    sidebar_update(marker, sidebar_list[marker.getTitle()]);
-
-    //사이드바 활성화
-	$('#sidebar').addClass('active');
-	$('.collapse.in').toggleClass('in');
-    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-}
 
 // 마커를 생성하고 지도위에 표시하는 함수입니다
 function addMarker(position) {
@@ -480,164 +521,14 @@ function commentSubmit() {
     $('#commentInput').val('');
 }
 
-function sidebar_update(marker, obj) {
-    if(obj == undefined) {
-        $("#sidebar div.sidebar-header").html('<h3><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;'+marker.getTitle()+'</h3>');
-        return;
-    }
-    var icon, title;
-    if(obj['category'] == 'res') {
-        icon = 'fa-utensils';
-        title = 'Restaurant';
-    } else if(obj['category'] == 'cafe') {
-        icon = 'fa-coffee';
-        title = 'Cafe';
-    } else if(obj['category'] == 'printer') {
-        icon = 'fa-print';
-        title = 'Printer';
-    }
-    
-    $("#sidebar div.sidebar-header").html('<h3><i class="fas '+icon+'"></i>&nbsp;&nbsp;'+obj['main']+'</h3>');
-    $("#sidebar #sub").html(
-        '<span style="font-size:12px;color:black;">'+title+'</span>'
-        +'<br>'
-        +'<span>'+obj['sub']+'</span>'
-        +'<br>'
-    );
-    // $("#sidebar #runtime").html(
-    //     '<font style="font-size:13px;font-weight: bold;">영업시간</font>'+
-    //     '<br/>'+
-    //     '<font style="font-size:11px;">'+
-    //     '</font>'
-    // );
-    $("#sidebar #menu").html(obj['menu']);
-    $("#sidebar #comments").html(obj['comments']);
-}
-sidebar_list = {
-    '청경관':{
-        position: new daum.maps.LatLng(37.566830, 126.937706),
-        category: 'res',
-        main: '청경관',
-        sub: '신촌캠퍼스 위당관 지하2층에 있는 식당',
-        menu: '<ul style = "padding:10px;">'+
-        '<li><div> 그라탕 - 만조 ...................... 4000원</div></li>'+
-        '<li><div> 오븐스파게티팀발..................... 5000원</div></li>'+
-        '<li><div> 오븐스파게티 치킨 바베큐 .............. 6200원</div></li>'+
-        '<li><div> 아라비아따 ......................... 6200원</div></li>'+
-        '<li><div> 바로아크림 ......................... 6200원</div></li>'+
-        '<li><div> 오븐스파게티 까르보나라 ............... 6200원</div></li>'+
-        '</ul>',
-        comments:
-        '<li>'+
-        '<div class = "name">'+
-        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;윤현진'+
-        '<span> 2019-06-13 </span>'+
-        '</div>'+
-        '<div class = "content">'+
-        '솔직히 고를샘이랑 여기랑 비교가 되나'+
-        '</div>'+
-        '</li>'+
-        '<li>'+
-        '<div class = "name">'+
-        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;최진혁'+
-        '<span> 2019-06-12 </span>'+
-        '</div>'+
-        '<div class = "content">'+
-        '오늘도 맛있게 먹고 갑니다'+
-        '</div>'+
-        '</li>'
-    },
-    '고를샘':{
-        position: new daum.maps.LatLng(37.566830, 126.937706),
-        category: 'res',
-        main: '고를샘',
-        sub: '신촌캠퍼스 학생회관 1층에 있는 식당',
-        menu: '<ul style = "padding:10px;">'+
-        '<li><div> 그라탕 - 만조 ...................... 4000원</div></li>'+
-        '<li><div> 오븐스파게티팀발..................... 5000원</div></li>'+
-        '<li><div> 오븐스파게티 치킨 바베큐 .............. 6200원</div></li>'+
-        '<li><div> 아라비아따 ......................... 6200원</div></li>'+
-        '<li><div> 바로아크림 ......................... 6200원</div></li>'+
-        '<li><div> 오븐스파게티 까르보나라 ............... 6200원</div></li>'+
-        '</ul>',
-        comments:
-        '<li>'+
-        '<div class = "name">'+
-        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;윤현진'+
-        '<span> 2019-06-13 </span>'+
-        '</div>'+
-        '<div class = "content">'+
-        '오늘 고를샘에 특식 판매함 만원짜리'+
-        '</div>'+
-        '</li>'+
-        '<li>'+
-        '<div class = "name">'+
-        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;황진성'+
-        '<span> 2019-06-12 </span>'+
-        '</div>'+
-        '<div class = "content">'+
-        '오늘 스파게티 상태 안좋네'+
-        '</div>'+
-        '</li>'
-    },'마호가니커피':{
-        position: new daum.maps.LatLng(37.566830, 126.937706),
-        category: 'cafe',
-        main: '마호가니 커피',
-        sub: '신촌캠퍼스 제4공학관 1층에 있는 카페',
-        menu: '<ul style = "padding:10px;">'+
-        '<li><div> 아메리카노(HOT/ICE) .......... 2200원/2700원</div></li>'+
-        '<li><div> 카페라떼(HOT/ICE)..............1800원/2100원</div></li>'+
-        '<li><div> 초코라떼(HOT/ICE)............ 2100원/2400원</div></li>'+
-        '<li><div> 녹차라떼(HOT/ICE)............ 2100원/2400원</div></li>'+
-        '<li><div> 쿠키바닐라버블티..................... 2800원</div></li>'+
-        '</ul>',
-        comments:
-        '<li>'+
-        '<div class = "name">'+
-        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;윤현진'+
-        '<span> 2019-06-13 </span>'+
-        '</div>'+
-        '<div class = "content">'+
-        '괜찮긴 한데, 트레비앙보단 비싸고 스벅보단 맛이 없어...'+
-        '</div>'+
-        '</li>'+
-        '<li>'+
-        '<div class = "name">'+
-        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;이연우'+
-        '<span> 2019-06-12 </span>'+
-        '</div>'+
-        '<div class = "content">'+
-        '아 공대는 이런거도 지어주네 ㅜㅜ'+
-        '</div>'+
-        '</li>'
-    },'위당관 복사실':{
-        position: new daum.maps.LatLng(37.566830, 126.937706),
-        category: 'printer',
-        main: '복사실(위당관)',
-        sub: '신촌캠퍼스 위당관에 있는 복사실',
-        menu: '<ul style = "padding:10px;">'+
-        '<li><div> 흑백 복사 .......................... 50원/장</div></li>'+
-        '<li><div> 컬러 복사 ..........................300원/장</div></li>'+
-        '</ul>',
-        comments:
-        '<li>'+
-        '<div class = "name">'+
-        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;이동제'+
-        '<span> 2019-06-13 </span>'+
-        '</div>'+
-        '<div class = "content">'+
-        '여기 아줌마 불친절함'+
-        '</div>'+
-        '</li>'+
-        '<li>'+
-        '<div class = "name">'+
-        '<i class = "fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;최진혁'+
-        '<span> 2019-06-12 </span>'+
-        '</div>'+
-        '<div class = "content">'+
-        '여기서 회계원리 복사본 얻을 수 있나요'+
-        '</div>'+
-        '</li>'
-    }
-};
+sidebar_list = null;
+
+$.getJSON( "js/info.json", function( data ) {
+    sidebar_list = data;
+    // $.each( data, function( key, val ) {
+    //   $.each( val, function( key, val ) {
+    //     //alert(key +' '+ val);
+    //   });
+    // });
+});
 

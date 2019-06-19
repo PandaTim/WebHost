@@ -1,0 +1,38 @@
+{
+    "청경관":{
+        "position": [37.566830, 126.937706],
+        "category": "res",
+        "main": "청경관",
+        "sub": "신촌캠퍼스 위당관 지하2층에 있는 식당",
+        "menu": "<ul style = 'padding:10px;'>        <li><div> 그라탕 - 만조 ...................... 4000원</div></li>        <li><div> 오븐스파게티팀발..................... 5000원</div></li>        <li><div> 오븐스파게티 치킨 바베큐 .............. 6200원</div></li>        <li><div> 아라비아따 ......................... 6200원</div></li>        <li><div> 바로아크림 ......................... 6200원</div></li>        <li><div> 오븐스파게티 까르보나라 ............... 6200원</div></li>        </ul>",
+        "comments":
+        "<li>        <div class = 'name'>        <i class = 'fas fa-user-circle fa-lg'></i>&nbsp;&nbsp;윤현진        <span> 2019-06-13 </span>        </div>        <div class = 'content'>        솔직히 고를샘이랑 여기랑 비교가 되나        </div>        </li>        <li>        <div class = 'name'>        <i class = 'fas fa-user-circle fa-lg'></i>&nbsp;&nbsp;최진혁        <span> 2019-06-12 </span>        </div>        <div class = 'content'>        오늘도 맛있게 먹고 갑니다        </div>        </li>"    
+    },
+    "고를샘":{
+        "position": [37.566830, 126.937706],
+        "category": "res",
+        "main": "고를샘",
+        "sub": "신촌캠퍼스 학생회관 1층에 있는 식당",
+        "menu": "<ul style = 'padding:10px;'>        <li><div> 그라탕 - 만조 ...................... 4000원</div></li>        <li><div> 오븐스파게티팀발..................... 5000원</div></li>        <li><div> 오븐스파게티 치킨 바베큐 .............. 6200원</div></li>        <li><div> 아라비아따 ......................... 6200원</div></li>        <li><div> 바로아크림 ......................... 6200원</div></li>        <li><div> 오븐스파게티 까르보나라 ............... 6200원</div></li>        </ul>",
+        "comments":
+        "<li>        <div class = 'name'>        <i class = 'fas fa-user-circle fa-lg'></i>&nbsp;&nbsp;윤현진        <span> 2019-06-13 </span>        </div>        <div class = 'content'>        오늘 고를샘에 특식 판매함 만원짜리        </div>        </li>        <li>        <div class = 'name'>        <i class = 'fas fa-user-circle fa-lg'></i>&nbsp;&nbsp;황진성        <span> 2019-06-12 </span>        </div>        <div class = 'content'>        오늘 스파게티 상태 안좋네        </div>        </li>"    
+    },
+    "마호가니커피":{
+        "position": [37.566830, 126.937706],
+        "category": "res",
+        "main": "마호가니커피",
+        "sub": "신촌캠퍼스 학생회관 1층에 있는 식당",
+        "menu": "<ul style = 'padding:10px;'>        <li><div> 아메리카노(HOT/ICE) .......... 2200원/2700원</div></li>        <li><div> 카페라떼(HOT/ICE)..............1800원/2100원</div></li>        <li><div> 초코라떼(HOT/ICE)............ 2100원/2400원</div></li>        <li><div> 녹차라떼(HOT/ICE)............ 2100원/2400원</div></li>        <li><div> 쿠키바닐라버블티..................... 2800원</div></li>        </ul>",
+        "comments":
+        "<li>        <div class = 'name'>        <i class = 'fas fa-user-circle fa-lg'></i>&nbsp;&nbsp;윤현진        <span> 2019-06-13 </span>        </div>        <div class = 'content'>        괜찮긴 한데, 트레비앙보단 비싸고 스벅보단 맛이 없어...        </div>        </li>        <li>        <div class = 'name'>        <i class = 'fas fa-user-circle fa-lg'></i>&nbsp;&nbsp;황진성        <span> 2019-06-12 </span>        </div>        <div class = 'content'>        아 공대는 이런거도 지어주네 ㅜㅜ        </div>        </li>"    
+    },
+    "위당관 복사실":{
+        "position": [37.566830, 126.937706],
+        "category": "res",
+        "main": "위당관 복사실",
+        "sub": "신촌캠퍼스 학생회관 1층에 있는 식당",
+        "menu": "<ul style = 'padding:10px;'>        <li><div> 흑백 복사 .......................... 50원/장</div></li>        <li><div> 컬러 복사 ..........................300원/장</div></li>        </ul>",
+        "comments":
+        "<li>        <div class = 'name'>        <i class = 'fas fa-user-circle fa-lg'></i>&nbsp;&nbsp;이동제        <span> 2019-06-13 </span>        </div>        <div class = 'content'>        여기 아줌마 불친절함        </div>        </li>        <li>        <div class = 'name'>        <i class = 'fas fa-user-circle fa-lg'></i>&nbsp;&nbsp;황진성        <span> 2019-06-12 </span>        </div>        <div class = 'content'>        여기서 회계원리 복사본 얻을 수 있나요        </div>        </li>"    
+    }
+}
