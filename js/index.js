@@ -35,6 +35,20 @@ $(document).ready(function(){
         addMarkerMove('최진혁');
     });  
 
+    $('#dismiss').on('click', function() {
+        $('#sidebar').removeClass('active');
+        current_overlay.setMap(null);
+    });
+
+    $('#dismiss_2').on('click', function() {
+        $('#sidebar_2').removeClass('active');
+    });
+    $('#sidebarCollapse').on('click', function() {
+        $('#sidebar').addClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+    });
+
     $("#commentInput").keydown(function(event) {
         console.log(event.keyCode);
         if(event.keyCode==13) {
@@ -42,5 +56,7 @@ $(document).ready(function(){
         }
     });
 
-
+    $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+    });
 });

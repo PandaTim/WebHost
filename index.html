@@ -29,40 +29,76 @@
     <!--login code-->
     <link rel="stylesheet" href="css/rightside_style.css">
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#dismiss').on('click', function() {
-                $('#sidebar').removeClass('active');
-                current_overlay.setMap(null);
-            });
-
-            $('#dismiss_2').on('click', function() {
-                $('#sidebar_2').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function() {
-                $('#sidebar').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
 </head>
 
 <body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" id="sidebarCollapse" href="#" style="color: #cbd2d8">
+                    <i class="fas fa-eye"></i>&nbsp;&nbsp;Eagle Eye
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li style="padding: 10px 10px;"><a class="btn btn-secondary" id="home"><i class="fas fa-crosshairs fa-lg"></i>&nbsp;위치 초기화</a></li>
+
+                    <li class="dropdown" aria-labelledby="dropdown1">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-map fa-lg"></i>&nbsp;&nbsp;편의시설<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" style="background-color: #181818">
+                            <li>
+                                <div class="custom-checkbox">
+                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="res_check">
+                                    <label>식당</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="cafe_check">
+                                    <label>카페</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox" style="padding-right: 30px">
+                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="printer_check">
+                                    <label>프린터</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox" style="padding-right: 30px">
+                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="">
+                                    <label>ATM</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-control custom-checkbox" style="padding-right: 30px">
+                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="">
+                                    <label>편의점</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" id="login">
+                    <li><a data-toggle="modal" data-target="#loginmodal">Log In <span class="sr-only">(current)</span></a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div id="dismiss">
             <i class="fas fa-arrow-left"></i>
         </div>
 
-        <div class="sidebar-header">
+        <header class="sidebar-header">
             <h3><i class="fas fa-utensils"></i>&nbsp;&nbsp;고를샘</h3>
-        </div>
+        </header>
 
         <ul class="list-unstyled components" style="margin:0;">
             <div class="image_list">
@@ -146,7 +182,7 @@
                 </div>
             </li>
         </ul>
-        <div style="position: fixed; bottom:0px;">
+        <footer style="position: fixed; bottom:0px;">
             <div class="input-group" style="padding: 5px; width:300px;">
                 <input id = 'commentInput' type="text" class="form-control" placeholder="Comment...">
                 <span class="input-group-btn">
@@ -154,10 +190,10 @@
                   </span>
             </div>
             <!-- /input-group -->
-        </div>
+        </footer>
     </nav>
 
-    <!--friend bar-->
+    <!--frienlist bar-->
     <nav id="sidebar_2" class="">
         <div id="dismiss_2">
             <i class="fas fa-arrow-right"></i>
@@ -178,9 +214,9 @@
                 <div>
                     <i class="fas fa-user-circle fa-lg"></i>&nbsp;&nbsp;이연우
                     <span class="online">
-                            <font>접속중&nbsp;</font>
-                            <button class = "btn btn-default btn-xs" id = "friend1">위치보기</button>
-                        </span>
+                        <font>접속중&nbsp;</font>
+                        <button class = "btn btn-default btn-xs" id = "friend1">위치보기</button>
+                    </span>
                 </div>
             </li>
             <hr/>
@@ -222,71 +258,8 @@
             </li>
         </ul>
     </nav>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" id="sidebarCollapse" href="#" style="color: #cbd2d8">
-                    <i class="fas fa-eye"></i>&nbsp;&nbsp;Eagle Eye
-                </a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li style="padding: 10px 10px;"><a class="btn btn-secondary" id="home"><i class="fas fa-crosshairs fa-lg"></i>&nbsp;위치 초기화</a></li>
-
-                    <li class="dropdown" aria-labelledby="dropdown1">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-map fa-lg"></i>&nbsp;&nbsp;편의시설<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" style="background-color: #181818">
-                            <li>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="res_check">
-                                    <label>식당</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="cafe_check">
-                                    <label>카페</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="custom-control custom-checkbox" style="padding-right: 30px">
-                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="printer_check">
-                                    <label>프린터</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="custom-control custom-checkbox" style="padding-right: 30px">
-                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="">
-                                    <label>ATM</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="custom-control custom-checkbox" style="padding-right: 30px">
-                                    <input type="checkbox" data-toggle="toggle" data-size="mini" id="">
-                                    <label>편의점</label>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right" id="login">
-                    <li><a data-toggle="modal" data-target="#loginmodal">Log In <span class="sr-only">(current)</span></a></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-    </nav>
+    
     <!--login code-->
-    <!-- Modal -->
     <!-- Modal -->
     <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document" style="margin-top: 250px;width: 300px;">

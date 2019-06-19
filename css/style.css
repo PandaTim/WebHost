@@ -46,6 +46,38 @@ html, body {
 }
 
 
+li.login_myposi a{
+    color: #cbd2d8;
+    border-color: #cbd2d8;
+    padding: 5px 5px;
+    background-color: #171717; 
+}
+li.login_myposi, li.login_userlist, li.login_remove{
+    color: #cbd2d8;
+    padding: 10px 3px;
+}
+li.logout{
+    pdding:0px;
+}
+
+li.login_remove a {
+    color: #cbd2d8;
+    border-color: #cbd2d8;
+    padding: 5px 5px;
+    background-color: #171717; 
+}
+li.login_user {
+    color: #cbd2d8;
+    padding: 15px 3px;
+}
+li.login_userlist a{
+    color: #cbd2d8;
+    border-color: #cbd2d8;
+    padding: 5px 5px;
+    background-color: #171717; 
+}
+
+
 /*map overlay*/
 .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
 .wrap * {padding: 0;margin: 0;}
